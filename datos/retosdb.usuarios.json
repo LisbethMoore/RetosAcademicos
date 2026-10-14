@@ -1,0 +1,36 @@
+[{
+  "_id": {
+    "$oid": "6acf08b8e4717875a268f9b4"
+  },
+  "nombre": "Lisbeth Moore",
+  "email": "lismoore@gmail.com",
+  "contrasena": "123456",
+  "rol": "jugador",
+  "institucion": "Universidad Autonoma del Cauca",
+  "nivelAcademico": "Universitario",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6acf0a9ee4717875a268f9b5"
+  },
+  "nombre": "Administrador",
+  "email": "admin@email.com",
+  "contrasena": "admin123",
+  "rol": "administrador",
+  "institucion": "Universidad Autonoma del Cauca",
+  "nivelAcademico": "Universitario",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6acf1e20719db69cb0f4eb55"
+  },
+  "nombre": "Carlos Perez",
+  "email": "carlos@email.com",
+  "contrasena": "123456",
+  "rol": "jugador",
+  "institucion": "Universidad Autonoma del Cauca",
+  "nivelAcademico": "Universitario",
+  "__v": 0
+}]

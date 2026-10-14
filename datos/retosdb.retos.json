@@ -1,0 +1,128 @@
+[{
+  "_id": {
+    "$oid": "6acf122bc9c8f5584f7b4f85"
+  },
+  "contenido": {
+    "titulo": "Conceptos básicos de movimiento: tramo recto",
+    "enunciado": "El carrito va por un tramo recto a velocidad constante de 12 m/s. ¿Que distancia recorre en 5 segundos? (d = v · t)"
+  },
+  "clasificacion": {
+    "tipoDePregunta": "Selección multiple",
+    "nivel": "Básico",
+    "activo": true
+  },
+  "respuesta": {
+    "opciones": [
+      "17 m",
+      "60 m",
+      "2.4 m",
+      "30 m"
+    ],
+    "indiceCorrecto": 1,
+    "respuestaCorrecta": "60 m"
+  },
+  "retroalimentacion": {
+    "retroAcierto": "¡Correcto! Con velocidad constante, d = v · t = 12 · 5 = 60 m.",
+    "retroError": "Incorrecto. Multiplica la velocidad por el tiempo: d = v · t."
+  },
+  "configuracion": {
+    "tolerancia": 0
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6acf1349c9c8f5584f7b4f86"
+  },
+  "contenido": {
+    "titulo": "Energía en la montaña rusa",
+    "enunciado": "Un carrito de 200 kg está detenido a 20 m de altura. ¿Cuál es su energía potencial? (g = 10 m/s², Ep = m · g · h)"
+  },
+  "clasificacion": {
+    "tipoDePregunta": "Selección múltiple",
+    "nivel": "Intermedio",
+    "activo": true
+  },
+  "respuesta": {
+    "opciones": [
+      "4000 J",
+      "40000 J",
+      "400 J",
+      "2000 J"
+    ],
+    "indiceCorrecto": 1,
+    "respuestaCorrecta": "40000 J"
+  },
+  "retroalimentacion": {
+    "retroAcierto": "¡Correcto! Ep = 200 · 10 · 20 = 40000 J.",
+    "retroError": "Incorrecto. Usa Ep = m · g · h."
+  },
+  "configuracion": {
+    "tolerancia": 0
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6acf135bc9c8f5584f7b4f87"
+  },
+  "contenido": {
+    "titulo": "Conservación de la energía",
+    "enunciado": "Un carrito parte del reposo a 45 m de altura. Sin fricción, ¿qué velocidad tiene al llegar al suelo? (g = 10 m/s², v = √(2 · g · h))"
+  },
+  "clasificacion": {
+    "tipoDePregunta": "Selección múltiple",
+    "nivel": "Avanzado",
+    "activo": true
+  },
+  "respuesta": {
+    "opciones": [
+      "20 m/s",
+      "45 m/s",
+      "30 m/s",
+      "900 m/s"
+    ],
+    "indiceCorrecto": 2,
+    "respuestaCorrecta": "30 m/s"
+  },
+  "retroalimentacion": {
+    "retroAcierto": "¡Correcto! v = √(2 · 10 · 45) = √900 = 30 m/s.",
+    "retroError": "Incorrecto. Toda la energía potencial se convierte en cinética: v = √(2 · g · h)."
+  },
+  "configuracion": {
+    "tolerancia": 0
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6acf1362c9c8f5584f7b4f88"
+  },
+  "contenido": {
+    "titulo": "Unidades de velocidad",
+    "enunciado": "¿En qué unidad del Sistema Internacional se mide la velocidad?"
+  },
+  "clasificacion": {
+    "tipoDePregunta": "Selección múltiple",
+    "nivel": "Básico",
+    "activo": true
+  },
+  "respuesta": {
+    "opciones": [
+      "km/h",
+      "m/s",
+      "m/s²",
+      "N"
+    ],
+    "indiceCorrecto": 1,
+    "respuestaCorrecta": "m/s"
+  },
+  "retroalimentacion": {
+    "retroAcierto": "¡Correcto! La velocidad se mide en metros por segundo.",
+    "retroError": "Incorrecto. En el Sistema Internacional la velocidad se mide en m/s."
+  },
+  "configuracion": {
+    "tolerancia": 0
+  },
+  "__v": 0
+}]

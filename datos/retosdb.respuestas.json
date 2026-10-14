@@ -1,0 +1,190 @@
+[{
+  "_id": {
+    "$oid": "6acf1c72581176db860a5f80"
+  },
+  "partidaId": {
+    "$oid": "6acf1a354464dfc1a76f91fe"
+  },
+  "usuarioId": {
+    "$oid": "6acf08b8e4717875a268f9b4"
+  },
+  "retoId": {
+    "$oid": "6acf122bc9c8f5584f7b4f85"
+  },
+  "respuesta": "60 m",
+  "correcta": true,
+  "tiempoRespuesta": 8.5,
+  "puntuacion": 10,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6acf1c8c581176db860a5f81"
+  },
+  "partidaId": {
+    "$oid": "6acf1a354464dfc1a76f91fe"
+  },
+  "usuarioId": {
+    "$oid": "6acf08b8e4717875a268f9b4"
+  },
+  "retoId": {
+    "$oid": "6acf1349c9c8f5584f7b4f86"
+  },
+  "respuesta": "4000 J",
+  "correcta": false,
+  "tiempoRespuesta": 12.2,
+  "puntuacion": 0,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6acf1c9d581176db860a5f82"
+  },
+  "partidaId": {
+    "$oid": "6acf1a354464dfc1a76f91fe"
+  },
+  "usuarioId": {
+    "$oid": "6acf08b8e4717875a268f9b4"
+  },
+  "retoId": {
+    "$oid": "6acf1362c9c8f5584f7b4f88"
+  },
+  "respuesta": "m/s",
+  "correcta": true,
+  "tiempoRespuesta": 5,
+  "puntuacion": 10,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6acf1ece719db69cb0f4eb58"
+  },
+  "partidaId": {
+    "$oid": "6acf1e4e719db69cb0f4eb56"
+  },
+  "usuarioId": {
+    "$oid": "6acf1e20719db69cb0f4eb55"
+  },
+  "retoId": {
+    "$oid": "6acf122bc9c8f5584f7b4f85"
+  },
+  "respuesta": "60 m",
+  "correcta": true,
+  "tiempoRespuesta": 10.4,
+  "puntuacion": 10,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6acf1ed4719db69cb0f4eb59"
+  },
+  "partidaId": {
+    "$oid": "6acf1e4e719db69cb0f4eb56"
+  },
+  "usuarioId": {
+    "$oid": "6acf1e20719db69cb0f4eb55"
+  },
+  "retoId": {
+    "$oid": "6acf1349c9c8f5584f7b4f86"
+  },
+  "respuesta": "2000 J",
+  "correcta": false,
+  "tiempoRespuesta": 15.1,
+  "puntuacion": 0,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6acf1ee1719db69cb0f4eb5a"
+  },
+  "partidaId": {
+    "$oid": "6acf1e4e719db69cb0f4eb56"
+  },
+  "usuarioId": {
+    "$oid": "6acf1e20719db69cb0f4eb55"
+  },
+  "retoId": {
+    "$oid": "6acf135bc9c8f5584f7b4f87"
+  },
+  "respuesta": "45 m/s",
+  "correcta": false,
+  "tiempoRespuesta": 20.3,
+  "puntuacion": 0,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6acf1ee9719db69cb0f4eb5b"
+  },
+  "partidaId": {
+    "$oid": "6acf1e4e719db69cb0f4eb56"
+  },
+  "usuarioId": {
+    "$oid": "6acf1e20719db69cb0f4eb55"
+  },
+  "retoId": {
+    "$oid": "6acf1362c9c8f5584f7b4f88"
+  },
+  "respuesta": "m/s",
+  "correcta": true,
+  "tiempoRespuesta": 6.2,
+  "puntuacion": 10,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6acf1fab1ba47093e90435df"
+  },
+  "partidaId": {
+    "$oid": "6acf1a454464dfc1a76f91ff"
+  },
+  "usuarioId": {
+    "$oid": "6acf08b8e4717875a268f9b4"
+  },
+  "retoId": {
+    "$oid": "6acf122bc9c8f5584f7b4f85"
+  },
+  "respuesta": "60 m",
+  "correcta": true,
+  "tiempoRespuesta": 7.1,
+  "puntuacion": 10,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6acf1fab1ba47093e90435e0"
+  },
+  "partidaId": {
+    "$oid": "6acf1a454464dfc1a76f91ff"
+  },
+  "usuarioId": {
+    "$oid": "6acf08b8e4717875a268f9b4"
+  },
+  "retoId": {
+    "$oid": "6acf135bc9c8f5584f7b4f87"
+  },
+  "respuesta": "20 m/s",
+  "correcta": false,
+  "tiempoRespuesta": 14.6,
+  "puntuacion": 0,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6acf1fac1ba47093e90435e1"
+  },
+  "partidaId": {
+    "$oid": "6acf1a454464dfc1a76f91ff"
+  },
+  "usuarioId": {
+    "$oid": "6acf08b8e4717875a268f9b4"
+  },
+  "retoId": {
+    "$oid": "6acf1349c9c8f5584f7b4f86"
+  },
+  "respuesta": "40000 J",
+  "correcta": true,
+  "tiempoRespuesta": 11.9,
+  "puntuacion": 10,
+  "__v": 0
+}]
