@@ -28,16 +28,18 @@ TECNOLOGIAS
 
 - Node.js
 - Express
-- MongoDB
+- MongoDB Atlas (base de datos en la nube)
 - Mongoose
 - Nodemon
 - Thunder Client
+- bcryptjs, jsonwebtoken (JWT) y cookie-parser (login y sesiones)
+- ReactJS + Vite, Axios y React Router (frontend)
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 COMO EJECUTAR EL PROYECTO
 
-1. Tener instalado Node.js y MongoDB (o MongoDB Compass con el servidor local corriendo).
+1. Tener instalado Node.js. La base de datos está en **MongoDB Atlas** (cluster `Cluster0`, base `retosdb`), así que no hace falta tener MongoDB instalado; solo se necesita internet y que la IP del equipo esté permitida en Atlas (Network Access). Si se prefiere trabajar sin internet, se puede usar MongoDB local.
 
 2. Descargar el proyecto e instalar las dependencias:
 
@@ -48,24 +50,81 @@ npm install
 3. Crear un archivo `.env` en la raíz del proyecto, copiando el contenido de `.env.ejemplo`:
 
 ```
-MONGODB_URI=mongodb://127.0.0.1:27017/retosdb
+MONGODB_URI=mongodb+srv://<usuario>:<contraseña>@cluster0.iv54xhv.mongodb.net/retosdb?appName=Cluster0
 PORT=3000
+TOKEN_SECRET=<clave larga y aleatoria>
+FRONTEND_URL=http://localhost:5173
 ```
 
-4. Iniciar el servidor:
+`<usuario>` y `<contraseña>` son los del Database User creado en Atlas (Database Access). Para usar MongoDB local en su lugar: `MONGODB_URI=mongodb://127.0.0.1:27017/retosdb`. `TOKEN_SECRET` es la clave con la que se firman los tokens de sesión y `FRONTEND_URL` es el único origen que CORS deja consumir la API.
+
+4. Iniciar el servidor (con `npm run dev` se reinicia solo con nodemon al cambiar el código; `npm start` es el que usa Render):
 
 ```
-npm start
+npm run dev
 ```
 
 Si todo está bien, en la terminal sale:
 
 ```
 Database connected successfully
-Server running at http://localhost:3000
+Server running on port 3000
 ```
 
-5. (Opcional) Para tener datos de prueba, en MongoDB Compass se crea la base `retosdb` y en cada colección (usuarios, retos, partidas y respuestas) se importa su archivo de la carpeta `datos`, por ejemplo `retosdb.usuarios.json` en la colección usuarios.
+5. La base `retosdb` en Atlas ya tiene cargados los datos de la carpeta `datos` (30 retos, 3 usuarios, 4 partidas y 10 respuestas). Para cargarlos en otra base, en MongoDB Compass se conecta a la base y en cada colección (usuarios, retos, partidas y respuestas) se importa su archivo, por ejemplo `retosdb.usuarios.json` en la colección usuarios. El paso a paso de cómo se creó la base en Atlas está en `docs/ejercicio-atlas.md`.
+
+6. Iniciar el frontend (con la API corriendo), en otra terminal:
+
+```
+cd frontend
+npm install
+npm run dev
+```
+
+Abrir http://localhost:5173. Usuarios de prueba (están en `datos/retosdb.usuarios.json`, con la contraseña cifrada):
+
+| Usuario | Contraseña | Rol |
+|---|---|---|
+| `lisbeth` | `123456` | jugador (Universitario) |
+| `carlos` | `123456` | jugador (Universitario) |
+| `admin` | `admin123` | administrador |
+
+Si la API no está en `http://localhost:3000/api`, se crea `frontend/.env` copiando `frontend/.env.ejemplo` y se cambia `VITE_API_URL`.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+DESPLIEGUE EN RENDER
+
+El backend se despliega como **Web Service** y el frontend como **Static Site**. El archivo `render.yaml` los define a los dos (Blueprint).
+
+1. Subir el proyecto a GitHub.
+2. En Atlas → **Network Access** → permitir `0.0.0.0/0` (Render no tiene una IP fija en el plan gratis).
+3. En https://render.com → **New → Blueprint** → escoger el repositorio. Render lee `render.yaml` y pide los valores que no están en el código:
+   - `MONGODB_URI` (API): la cadena de conexión de Atlas.
+   - `FRONTEND_URL` (API) y `VITE_API_URL` (frontend): se conocen cuando Render crea los servicios. Se ponen después en **Environment** de cada servicio: `FRONTEND_URL=https://<frontend>.onrender.com` y `VITE_API_URL=https://<api>.onrender.com/api`, y se vuelve a desplegar.
+4. `TOKEN_SECRET` lo genera Render solo y `NODE_ENV=production` ya viene en el archivo.
+
+Detalles de producción que ya están en el código:
+
+- `index.js` no falla si no hay `.env` (en Render las variables están en su panel).
+- `npm start` usa `node` (nodemon queda solo para desarrollo con `npm run dev`).
+- `app.set('trust proxy', 1)`: Render pone la API detrás de un proxy HTTPS.
+- En producción la cookie de la sesión es `SameSite=None; Secure`, porque el frontend y la API están en dominios distintos.
+- El frontend tiene una regla de *rewrite* `/* → /index.html` para que React Router funcione al recargar.
+- En el plan gratis la API se "duerme" tras 15 minutos sin uso; la primera petición tarda unos 50 segundos en despertarla.
+
+FECHAS
+
+- La partida guarda `fechaInicio` y `fechaFin`, y cada respuesta guarda `fecha`.
+- **Todas las fechas las pone el backend** (`new Date()` en el servidor), nunca el navegador. MongoDB las guarda en UTC.
+- Al responder la última pregunta se usa **la misma fecha** para la respuesta y para el `fechaFin` de la partida, así coinciden exactamente.
+- El frontend solo las muestra en la hora de Colombia (`America/Bogota`). Así, aunque el frontend y la API estén en servidores distintos (Render usa UTC), las fechas siempre coinciden.
+
+DISEÑO E IMÁGENES
+
+- Fondo de paisaje (`frontend/public/fondo.webp`) y la **mascota de la Uniautónoma** en el carrito (`frontend/public/mascota.webp`): aparece en la portada y celebrando al terminar la partida.
+- Cada reto puede tener una **imagen**: el administrador la selecciona desde su computador (JPG, PNG o WebP). El navegador la achica a máximo 800 px y la comprime (unos 30-80 KB) y se guarda **dentro del reto en MongoDB** (campo `contenido.imagen`, como data URL). No se guarda como archivo en el servidor porque en Render los archivos subidos se borran al reiniciar.
+- Si el reto no tiene imagen, el juego dibuja una escena de la montaña rusa según el tema de la pregunta (colina, caída, rizo, túnel o choque).
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -73,11 +132,25 @@ ESTRUCTURA DEL PROYECTO
 
 ```
 RetosAcademicos/
-├── controllers/     lógica de cada funcionalidad
+├── controllers/     lógica de cada funcionalidad (auth.js: registro, login, logout y perfil)
+├── middlewares/     auth.js: verifica la sesión (token) y el rol
+├── libs/            jwt.js: crea el token de la sesión
 ├── models/          esquemas de las colecciones
 ├── routes/          rutas de la API
+├── datos/           datos de prueba para importar en MongoDB
+├── frontend/        React + Vite: login, registro, jugar y CRUD de retos
+│   └── src/
+│       ├── api/         Axios hacia la API (axios.js con withCredentials, auth.js, retos.js y partidas.js)
+│       ├── context/     AuthContext.jsx: usuario con la sesión iniciada
+│       ├── components/  Header, RetoCard, RetoForm, RutaProtegida e IlustracionReto
+│       ├── utils/       fechas.js (hora de Colombia) e imagen.js (comprime la imagen del reto)
+│       ├── pages/       Home, Login, Registro, Jugar, Retos, CrearReto y EditarReto
+│       ├── styles/      global.css y forms.css
+│       ├── App.jsx      rutas con React Router
+│       └── main.jsx
 ├── app.js           configuración de Express y rutas
 ├── index.js         conexión a MongoDB y arranque del servidor
+├── render.yaml      despliegue en Render (API + frontend)
 ├── .env.ejemplo     variables de entorno que necesita el proyecto
 └── historiaUsuario.md
 ```
@@ -98,16 +171,61 @@ FUNCIONALIDADES
 
 Cada funcionalidad tiene su historia de usuario en historiaUsuario.md
 
-1. Registrar usuario: `POST /api/usuarios`
-2. Registrar reto: `POST /api/retos`
-3. Buscar retos activos por nivel: `GET /api/retos?nivel=Básico`
-4. Activar o desactivar un reto: `PATCH /api/retos/:id/estado`
-5. Iniciar partida: `POST /api/partidas`
-6. Responder un reto: `POST /api/respuestas`
-7. Historial de partidas de un jugador: `GET /api/partidas/usuario/:usuarioId`
-8. Historial de respuestas de un jugador: `GET /api/respuestas/usuario/:usuarioId?correcta=false`
-9. Ranking de jugadores: `GET /api/estadisticas/jugadores?limite=3`
-10. Retos más difíciles: `GET /api/estadisticas/retos-dificiles?limite=1`
+| # | Funcionalidad | Ruta | Quién |
+|---|---|---|---|
+| 1 | Registro rápido de jugador (nombre, usuario, contraseña y nivel) | `POST /api/auth/registro` | cualquiera |
+| 2 | Registrar reto | `POST /api/retos` | administrador |
+| 3 | Buscar retos activos por nivel | `GET /api/retos?nivel=Básico` | con sesión |
+| 4 | Activar o desactivar un reto | `PATCH /api/retos/:id/estado` | administrador |
+| 5 | Iniciar partida (retos al azar de su nivel) | `POST /api/partidas` | jugador |
+| 6 | Responder un reto | `POST /api/respuestas` | jugador |
+| 7 | Mi historial de partidas | `GET /api/partidas` (admin: `GET /api/partidas/usuario/:usuarioId`) | con sesión |
+| 8 | Mi historial de respuestas | `GET /api/respuestas?correcta=false` (admin: `GET /api/respuestas/usuario/:usuarioId`) | con sesión |
+| 9 | Ranking de jugadores | `GET /api/estadisticas/jugadores?limite=3` | administrador |
+| 10 | Retos más difíciles | `GET /api/estadisticas/retos-dificiles?limite=1` | administrador |
+| 11 | CRUD de retos desde el frontend (ver abajo) | | administrador |
+| 12 | Login, sesión y cerrar sesión (ver abajo) | `/api/auth/...` | |
+
+LOGIN, SESIONES Y CORS
+
+| Operación | Ruta |
+|---|---|
+| Registrarse (queda con la sesión iniciada) | `POST /api/auth/registro` |
+| Iniciar sesión | `POST /api/auth/login` con `{ "usuario": "lisbeth", "contrasena": "123456" }` |
+| Cerrar sesión | `POST /api/auth/logout` |
+| Usuario de la sesión | `GET /api/auth/perfil` |
+
+- **Sin datos quemados:** no hay usuarios ni contraseñas escritos en el código. Al iniciar sesión se busca el usuario en MongoDB y la contraseña se compara con `bcrypt`; en la base las contraseñas se guardan cifradas (hash), nunca en texto plano.
+- **Sesión con token:** al iniciar sesión la API crea un token JWT (con el id y el rol, firmado con `TOKEN_SECRET`) y lo guarda en una cookie `httpOnly`, que el JavaScript del navegador no puede leer. El navegador la envía sola en cada petición (`withCredentials` en Axios) y el middleware `authRequired` la verifica y deja en `req.user` quién es el usuario. Por eso al iniciar partida o responder **no se envía el `usuarioId`**: la API lo saca de la sesión, y un jugador no puede responder la partida de otro.
+- **Roles:** el middleware `soloRol` deja el CRUD de retos y las estadísticas solo al administrador, y jugar solo al jugador. Sin sesión la API responde 401 y con el rol equivocado 403.
+- **Varios usuarios a la vez:** cada navegador tiene sus propias cookies. En una ventana normal y en una de incógnito (o en dos navegadores) se puede tener un usuario distinto en cada una al mismo tiempo; en dos pestañas normales del mismo navegador se comparte la sesión porque comparten las cookies.
+- **CORS:** la API solo acepta peticiones del frontend registrado en `FRONTEND_URL` (`http://localhost:5173`), no de cualquier aplicación, y con `credentials: true` para que viaje la cookie.
+
+CRUD DE RETOS (FRONTEND)
+
+El frontend en React consume estas rutas de la API para que el administrador gestione el banco de retos:
+
+| Operación | Ruta |
+|---|---|
+| Listar (también inactivos, con filtro por nivel) | `GET /api/retos?todos=true&nivel=Básico` |
+| Consultar uno completo | `GET /api/retos/:id` |
+| Crear | `POST /api/retos` |
+| Editar | `PUT /api/retos/:id` |
+| Eliminar | `DELETE /api/retos/:id` |
+| Activar / desactivar | `PATCH /api/retos/:id/estado` |
+
+Un reto solo se puede eliminar si nadie lo ha respondido; si ya tiene respuestas la API responde 400 y hay que desactivarlo, así no se daña el historial ni las estadísticas.
+
+RETOS ALEATORIOS
+
+Para que el jugador no se aprenda las respuestas, al iniciar una partida los retos se escogen al azar con `$sample` de un banco de retos activos del nivel del jugador (Primaria → Básico, Secundaria → Intermedio, Universitario → Avanzado), y el orden de las opciones se mezcla. Los retos que salieron se guardan en la partida (`retosAsignados`) y solo esos se pueden responder. La carpeta `datos` trae un banco de 30 retos, 10 por nivel.
+
+Ejemplo:
+
+```
+POST /api/partidas      (con la sesión del jugador iniciada)
+{ "totalPreguntas": 5 }
+```
 
 Al responder un reto, la partida se actualiza con `$inc` (puntos, aciertos, errores y tiempo) y el porcentaje de aciertos lo calcula MongoDB, así no se escriben los valores a mano.
 
@@ -120,5 +238,7 @@ Todas las respuestas son en JSON y usan estos códigos:
 - 200: consulta o actualización correcta
 - 201: registro creado
 - 400: datos incompletos o no válidos
+- 401: no hay sesión iniciada o el token no es válido
+- 403: el usuario no tiene el rol para esa acción
 - 404: el recurso no existe o la ruta no existe
 - 500: error interno del servidor
