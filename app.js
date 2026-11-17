@@ -1,3 +1,5 @@
+const path = require('path')
+const fs = require('fs')
 const express = require('express')
 const cors = require('cors')
 const cookieParser = require('cookie-parser')
@@ -28,6 +30,21 @@ app.use('/api/retos', retos_routes)
 app.use('/api/partidas', partidas_routes)
 app.use('/api/respuestas', respuestas_routes)
 app.use('/api/estadisticas', estadisticas_routes)
+
+// En Render la API también entrega la página de React ya construida (frontend/dist),
+// así todo queda en el mismo dominio y la cookie de la sesión funciona en cualquier navegador.
+// En local esta carpeta no existe y el frontend corre aparte con Vite.
+const carpetaFrontend = path.join(__dirname, 'frontend', 'dist')
+if (fs.existsSync(carpetaFrontend)) {
+  app.use(express.static(carpetaFrontend))
+  // cualquier ruta que no sea de la API (/jugar, /retos...) la resuelve React Router
+  app.use((req, res, next) => {
+    if (req.method === 'GET' && !req.path.startsWith('/api')) {
+      return res.sendFile(path.join(carpetaFrontend, 'index.html'))
+    }
+    next()
+  })
+}
 
 // ruta no encontrada
 app.use((req, res) => {

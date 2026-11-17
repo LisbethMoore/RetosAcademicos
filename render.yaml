@@ -1,35 +1,20 @@
-# Despliegue en Render (Blueprint): crea los dos servicios desde este repositorio.
-# Los valores con "sync: false" se escriben a mano en el panel de Render (no se suben a GitHub).
+# Despliegue en Render: un solo Web Service.
+# Render construye el frontend (React) y la API de Express lo entrega en la misma dirección,
+# así la cookie de la sesión funciona en cualquier navegador (también en incógnito).
+# Los valores con "sync: false" se escriben en el panel de Render (no se suben a GitHub).
 services:
-  # Backend: la API de Node.js + Express
   - type: web
-    name: retos-academicos-api
+    name: retos-academicos
     runtime: node
     plan: free
-    buildCommand: npm install
+    buildCommand: npm install && npm install --prefix frontend --include=dev && npm run build --prefix frontend
     startCommand: npm start
     envVars:
       - key: NODE_ENV
         value: production
+      - key: VITE_API_URL         # la página llama a la API en la misma dirección
+        value: /api
       - key: MONGODB_URI          # la cadena de conexión de MongoDB Atlas
         sync: false
       - key: TOKEN_SECRET         # Render genera una clave aleatoria
         generateValue: true
-      - key: FRONTEND_URL         # la URL del frontend en Render (para CORS)
-        sync: false
-
-  # Frontend: React + Vite como sitio estático
-  - type: web
-    name: retos-academicos-front
-    runtime: static
-    rootDir: frontend
-    buildCommand: npm install && npm run build
-    staticPublishPath: dist
-    routes:
-      # React Router: cualquier ruta (/jugar, /retos...) la resuelve index.html
-      - type: rewrite
-        source: /*
-        destination: /index.html
-    envVars:
-      - key: VITE_API_URL         # la URL de la API en Render + /api
-        sync: false

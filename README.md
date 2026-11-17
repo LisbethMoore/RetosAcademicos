@@ -95,23 +95,20 @@ Si la API no está en `http://localhost:3000/api`, se crea `frontend/.env` copia
 
 DESPLIEGUE EN RENDER
 
-El backend se despliega como **Web Service** y el frontend como **Static Site**. El archivo `render.yaml` los define a los dos (Blueprint).
+Se despliega como **un solo Web Service** (archivo `render.yaml`): Render construye el frontend de React y la API de Express lo entrega en la misma dirección (la API en `/api`). Así todo queda en el mismo dominio y la cookie de la sesión funciona en cualquier navegador, también en incógnito (los navegadores bloquean las cookies entre dominios distintos). En el código el frontend y el backend siguen siendo aplicaciones separadas; en local corren aparte como siempre.
 
-1. Subir el proyecto a GitHub.
-2. En Atlas → **Network Access** → permitir `0.0.0.0/0` (Render no tiene una IP fija en el plan gratis).
-3. En https://render.com → **New → Blueprint** → escoger el repositorio. Render lee `render.yaml` y pide los valores que no están en el código:
-   - `MONGODB_URI` (API): la cadena de conexión de Atlas.
-   - `FRONTEND_URL` (API) y `VITE_API_URL` (frontend): se conocen cuando Render crea los servicios. Se ponen después en **Environment** de cada servicio: `FRONTEND_URL=https://<frontend>.onrender.com` y `VITE_API_URL=https://<api>.onrender.com/api`, y se vuelve a desplegar.
-4. `TOKEN_SECRET` lo genera Render solo y `NODE_ENV=production` ya viene en el archivo.
+1. En Atlas → **Network Access** → permitir `0.0.0.0/0` (Render no tiene una IP fija en el plan gratis).
+2. En https://render.com → **New → Blueprint** → escoger el repositorio. Render lee `render.yaml`.
+3. Escribir el valor de `MONGODB_URI` (la cadena de conexión de Atlas). `TOKEN_SECRET` lo genera Render, y `NODE_ENV=production` y `VITE_API_URL=/api` ya vienen en el archivo.
+4. Esperar a que termine el despliegue y abrir la URL que da Render (`https://<nombre>.onrender.com`).
 
 Detalles de producción que ya están en el código:
 
 - `index.js` no falla si no hay `.env` (en Render las variables están en su panel).
 - `npm start` usa `node` (nodemon queda solo para desarrollo con `npm run dev`).
-- `app.set('trust proxy', 1)`: Render pone la API detrás de un proxy HTTPS.
-- En producción la cookie de la sesión es `SameSite=None; Secure`, porque el frontend y la API están en dominios distintos.
-- El frontend tiene una regla de *rewrite* `/* → /index.html` para que React Router funcione al recargar.
-- En el plan gratis la API se "duerme" tras 15 minutos sin uso; la primera petición tarda unos 50 segundos en despertarla.
+- `app.js` entrega la carpeta `frontend/dist` si existe, y cualquier ruta que no sea `/api` la resuelve React Router.
+- `app.set('trust proxy', 1)`: Render pone la API detrás de un proxy HTTPS; en producción la cookie es `Secure`.
+- En el plan gratis el servicio se "duerme" tras 15 minutos sin uso; la primera petición tarda unos 50 segundos en despertarlo.
 
 FECHAS
 

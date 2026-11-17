@@ -316,7 +316,7 @@ Como equipo queremos publicar la aplicación en internet para que se pueda usar 
 
 Criterios de aceptación:
 
-- La API se despliega en Render como Web Service y el frontend como Static Site (`render.yaml`).
+- Se despliega en Render como un solo Web Service (`render.yaml`): Render construye el frontend y la API lo entrega en la misma dirección.
 - Las claves (conexión a Atlas, clave del token) se configuran en Render, no en el código.
-- CORS acepta solo la URL del frontend en Render y la cookie de sesión funciona entre los dos dominios (`SameSite=None; Secure`).
+- Al estar todo en el mismo dominio, la sesión funciona en cualquier navegador, también en incógnito.
 
