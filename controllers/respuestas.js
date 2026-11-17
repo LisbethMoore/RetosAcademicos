@@ -26,9 +26,21 @@ const controller = {
         //validar que la partida exista
         if (!partida) return res.status(404).send({message: "La partida no existe"})
 
+        //validar que la partida sea del jugador que tiene la sesión iniciada
+        if (!partida.usuarioId.equals(req.user.id)) {
+          return res.status(403).send({message: "Esta partida no es tuya"})
+        }
+
         //validar que la partida no haya terminado
         if (partida.aciertos + partida.errores >= partida.totalPreguntas) {
           return res.status(400).send({message: "La partida ya terminó, no se pueden registrar más respuestas"})
+        }
+
+        //validar que el reto sea uno de los que le salieron al azar en esta partida
+        //(las partidas viejas no tienen retosAsignados, a esas no se les aplica)
+        if (partida.retosAsignados && partida.retosAsignados.length > 0 &&
+            !partida.retosAsignados.some(id => id.equals(retoId))) {
+          return res.status(400).send({message: "Este reto no pertenece a esta partida"})
         }
 
         return Reto.findById(retoId).exec()
@@ -53,6 +65,11 @@ const controller = {
                 const correcta = respuesta === reto.respuesta.respuestaCorrecta
                 const puntos = correcta ? puntosPorAcierto : 0
 
+                //una sola fecha del servidor para la respuesta y, si es la última, para el fin de la partida:
+                //así las dos coinciden exactamente
+                const fecha = new Date()
+                const terminaPartida = partida.aciertos + partida.errores + 1 >= partida.totalPreguntas
+
                 let nuevaRespuesta = new Respuesta()
                 nuevaRespuesta.partidaId = partidaId
                 nuevaRespuesta.usuarioId = partida.usuarioId
@@ -61,18 +78,23 @@ const controller = {
                 nuevaRespuesta.correcta = correcta
                 nuevaRespuesta.tiempoRespuesta = tiempoRespuesta
                 nuevaRespuesta.puntuacion = puntos
+                nuevaRespuesta.fecha = fecha
 
                 return nuevaRespuesta.save()
                   .then(respuestaGuardada => {
                     //1. actualizar los contadores con $inc (operación atómica)
-                    return Partida.findByIdAndUpdate(partidaId, {
+                    let cambios = {
                       $inc: {
                         puntuacion: puntos,
                         aciertos: correcta ? 1 : 0,
                         errores: correcta ? 0 : 1,
                         tiempoTotal: tiempoRespuesta
                       }
-                    })
+                    }
+                    //si era la última pregunta, la partida termina con la misma fecha de esta respuesta
+                    if (terminaPartida) cambios.$set = { fechaFin: fecha }
+
+                    return Partida.findByIdAndUpdate(partidaId, cambios)
                       //2. MongoDB recalcula el porcentaje con los valores ya guardados
                       .then(() => Partida.findByIdAndUpdate(partidaId, [
                         {
@@ -99,7 +121,13 @@ const controller = {
       .catch(err => res.status(500).send({message: `Error al registrar la respuesta: ${err}`}))
   },
 
-  // Funcionalidad 8: historial de respuestas de un jugador con el título del reto
+  // Funcionalidad 8: historial de respuestas del jugador que tiene la sesión iniciada
+  getMisRespuestas: function (req, res) {
+    req.params.usuarioId = req.user.id
+    return controller.getRespuestasByUsuario(req, res)
+  },
+
+  // Funcionalidad 8 (administrador): historial de respuestas de un jugador con el título del reto
   getRespuestasByUsuario: function (req, res) {
     const usuarioId = req.params.usuarioId
     const correcta = req.query.correcta
@@ -149,7 +177,8 @@ const controller = {
               respuestaCorrecta: '$reto.respuesta.respuestaCorrecta',
               correcta: 1,
               tiempoRespuesta: 1,
-              puntuacion: 1
+              puntuacion: 1,
+              fecha: 1
           } }
         ])
           .then(respuestas => res.status(200).json({
