@@ -1,128 +1,962 @@
-[{
-  "_id": {
-    "$oid": "6acf122bc9c8f5584f7b4f85"
+[
+  {
+    "_id": {
+      "$oid": "6acf122bc9c8f5584f7b4f85"
+    },
+    "contenido": {
+      "titulo": "Conceptos básicos de movimiento: tramo recto",
+      "enunciado": "El carrito va por un tramo recto a velocidad constante de 12 m/s. ¿Que distancia recorre en 5 segundos? (d = v · t)"
+    },
+    "clasificacion": {
+      "tipoDePregunta": "Selección múltiple",
+      "nivel": "Básico",
+      "activo": true
+    },
+    "respuesta": {
+      "opciones": [
+        "17 m",
+        "60 m",
+        "2.4 m",
+        "30 m"
+      ],
+      "indiceCorrecto": 1,
+      "respuestaCorrecta": "60 m"
+    },
+    "retroalimentacion": {
+      "retroAcierto": "¡Correcto! Con velocidad constante, d = v · t = 12 · 5 = 60 m.",
+      "retroError": "Incorrecto. Multiplica la velocidad por el tiempo: d = v · t."
+    },
+    "configuracion": {
+      "tolerancia": 0
+    },
+    "__v": 0
   },
-  "contenido": {
-    "titulo": "Conceptos básicos de movimiento: tramo recto",
-    "enunciado": "El carrito va por un tramo recto a velocidad constante de 12 m/s. ¿Que distancia recorre en 5 segundos? (d = v · t)"
+  {
+    "_id": {
+      "$oid": "6acf1349c9c8f5584f7b4f86"
+    },
+    "contenido": {
+      "titulo": "Energía en la montaña rusa",
+      "enunciado": "Un carrito de 200 kg está detenido a 20 m de altura. ¿Cuál es su energía potencial? (g = 10 m/s², Ep = m · g · h)"
+    },
+    "clasificacion": {
+      "tipoDePregunta": "Selección múltiple",
+      "nivel": "Intermedio",
+      "activo": true
+    },
+    "respuesta": {
+      "opciones": [
+        "4000 J",
+        "40000 J",
+        "400 J",
+        "2000 J"
+      ],
+      "indiceCorrecto": 1,
+      "respuestaCorrecta": "40000 J"
+    },
+    "retroalimentacion": {
+      "retroAcierto": "¡Correcto! Ep = 200 · 10 · 20 = 40000 J.",
+      "retroError": "Incorrecto. Usa Ep = m · g · h."
+    },
+    "configuracion": {
+      "tolerancia": 0
+    },
+    "__v": 0
   },
-  "clasificacion": {
-    "tipoDePregunta": "Selección multiple",
-    "nivel": "Básico",
-    "activo": true
+  {
+    "_id": {
+      "$oid": "6acf135bc9c8f5584f7b4f87"
+    },
+    "contenido": {
+      "titulo": "Conservación de la energía",
+      "enunciado": "Un carrito parte del reposo a 45 m de altura. Sin fricción, ¿qué velocidad tiene al llegar al suelo? (g = 10 m/s², v = √(2 · g · h))"
+    },
+    "clasificacion": {
+      "tipoDePregunta": "Selección múltiple",
+      "nivel": "Avanzado",
+      "activo": true
+    },
+    "respuesta": {
+      "opciones": [
+        "20 m/s",
+        "45 m/s",
+        "30 m/s",
+        "900 m/s"
+      ],
+      "indiceCorrecto": 2,
+      "respuestaCorrecta": "30 m/s"
+    },
+    "retroalimentacion": {
+      "retroAcierto": "¡Correcto! v = √(2 · 10 · 45) = √900 = 30 m/s.",
+      "retroError": "Incorrecto. Toda la energía potencial se convierte en cinética: v = √(2 · g · h)."
+    },
+    "configuracion": {
+      "tolerancia": 0
+    },
+    "__v": 0
   },
-  "respuesta": {
-    "opciones": [
-      "17 m",
-      "60 m",
-      "2.4 m",
-      "30 m"
-    ],
-    "indiceCorrecto": 1,
-    "respuestaCorrecta": "60 m"
+  {
+    "_id": {
+      "$oid": "6acf1362c9c8f5584f7b4f88"
+    },
+    "contenido": {
+      "titulo": "Unidades de velocidad",
+      "enunciado": "¿En qué unidad del Sistema Internacional se mide la velocidad?"
+    },
+    "clasificacion": {
+      "tipoDePregunta": "Selección múltiple",
+      "nivel": "Básico",
+      "activo": true
+    },
+    "respuesta": {
+      "opciones": [
+        "km/h",
+        "m/s",
+        "m/s²",
+        "N"
+      ],
+      "indiceCorrecto": 1,
+      "respuestaCorrecta": "m/s"
+    },
+    "retroalimentacion": {
+      "retroAcierto": "¡Correcto! La velocidad se mide en metros por segundo.",
+      "retroError": "Incorrecto. En el Sistema Internacional la velocidad se mide en m/s."
+    },
+    "configuracion": {
+      "tolerancia": 0
+    },
+    "__v": 0
   },
-  "retroalimentacion": {
-    "retroAcierto": "¡Correcto! Con velocidad constante, d = v · t = 12 · 5 = 60 m.",
-    "retroError": "Incorrecto. Multiplica la velocidad por el tiempo: d = v · t."
+  {
+    "_id": {
+      "$oid": "6af1062ab6ece15ef2bf7965"
+    },
+    "contenido": {
+      "titulo": "Velocidad en la recta final",
+      "enunciado": "El carrito recorre 100 m en 20 segundos. ¿Cuál es su velocidad? (v = d / t)"
+    },
+    "clasificacion": {
+      "tipoDePregunta": "Selección múltiple",
+      "nivel": "Básico",
+      "activo": true
+    },
+    "respuesta": {
+      "opciones": [
+        "2000 m/s",
+        "5 m/s",
+        "80 m/s",
+        "20 m/s"
+      ],
+      "indiceCorrecto": 1,
+      "respuestaCorrecta": "5 m/s"
+    },
+    "retroalimentacion": {
+      "retroAcierto": "¡Correcto! v = 100 / 20 = 5 m/s.",
+      "retroError": "Incorrecto. Divide la distancia entre el tiempo: v = d / t."
+    },
+    "configuracion": {
+      "tolerancia": 0
+    },
+    "__v": 0
   },
-  "configuracion": {
-    "tolerancia": 0
+  {
+    "_id": {
+      "$oid": "6af1062b3dc5a2ce06d56af2"
+    },
+    "contenido": {
+      "titulo": "Tiempo en el túnel",
+      "enunciado": "El carrito atraviesa un túnel de 40 m a 8 m/s. ¿Cuánto tarda en cruzarlo? (t = d / v)"
+    },
+    "clasificacion": {
+      "tipoDePregunta": "Selección múltiple",
+      "nivel": "Básico",
+      "activo": true
+    },
+    "respuesta": {
+      "opciones": [
+        "32 s",
+        "320 s",
+        "5 s",
+        "48 s"
+      ],
+      "indiceCorrecto": 2,
+      "respuestaCorrecta": "5 s"
+    },
+    "retroalimentacion": {
+      "retroAcierto": "¡Correcto! t = 40 / 8 = 5 s.",
+      "retroError": "Incorrecto. Divide la distancia entre la velocidad: t = d / v."
+    },
+    "configuracion": {
+      "tolerancia": 0
+    },
+    "__v": 0
   },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "6acf1349c9c8f5584f7b4f86"
+  {
+    "_id": {
+      "$oid": "6af1062ca47b4e90086ba651"
+    },
+    "contenido": {
+      "titulo": "Subiendo la cuesta",
+      "enunciado": "Cuando el carrito sube una cuesta sin motor, ¿qué pasa con su velocidad?"
+    },
+    "clasificacion": {
+      "tipoDePregunta": "Selección múltiple",
+      "nivel": "Básico",
+      "activo": true
+    },
+    "respuesta": {
+      "opciones": [
+        "Aumenta",
+        "No cambia",
+        "Disminuye",
+        "Se duplica"
+      ],
+      "indiceCorrecto": 2,
+      "respuestaCorrecta": "Disminuye"
+    },
+    "retroalimentacion": {
+      "retroAcierto": "¡Correcto! Al subir, la gravedad lo frena y la velocidad disminuye.",
+      "retroError": "Incorrecto. Al subir, la gravedad actúa en contra del movimiento y el carrito se frena."
+    },
+    "configuracion": {
+      "tolerancia": 0
+    },
+    "__v": 0
   },
-  "contenido": {
-    "titulo": "Energía en la montaña rusa",
-    "enunciado": "Un carrito de 200 kg está detenido a 20 m de altura. ¿Cuál es su energía potencial? (g = 10 m/s², Ep = m · g · h)"
+  {
+    "_id": {
+      "$oid": "6af1062dcff666f2c9cc82f1"
+    },
+    "contenido": {
+      "titulo": "La fuerza que baja el carrito",
+      "enunciado": "¿Qué fuerza hace que el carrito baje por la pendiente de la montaña rusa?"
+    },
+    "clasificacion": {
+      "tipoDePregunta": "Selección múltiple",
+      "nivel": "Básico",
+      "activo": true
+    },
+    "respuesta": {
+      "opciones": [
+        "El viento",
+        "La gravedad",
+        "El magnetismo",
+        "La fricción"
+      ],
+      "indiceCorrecto": 1,
+      "respuestaCorrecta": "La gravedad"
+    },
+    "retroalimentacion": {
+      "retroAcierto": "¡Correcto! La gravedad atrae el carrito hacia abajo.",
+      "retroError": "Incorrecto. La fuerza que atrae todo hacia el suelo es la gravedad."
+    },
+    "configuracion": {
+      "tolerancia": 0
+    },
+    "__v": 0
   },
-  "clasificacion": {
-    "tipoDePregunta": "Selección múltiple",
-    "nivel": "Intermedio",
-    "activo": true
+  {
+    "_id": {
+      "$oid": "6af1062ee5f977d65ecb1215"
+    },
+    "contenido": {
+      "titulo": "Unidades de tiempo",
+      "enunciado": "¿En qué unidad del Sistema Internacional se mide el tiempo?"
+    },
+    "clasificacion": {
+      "tipoDePregunta": "Selección múltiple",
+      "nivel": "Básico",
+      "activo": true
+    },
+    "respuesta": {
+      "opciones": [
+        "Minuto",
+        "Hora",
+        "Metro",
+        "Segundo"
+      ],
+      "indiceCorrecto": 3,
+      "respuestaCorrecta": "Segundo"
+    },
+    "retroalimentacion": {
+      "retroAcierto": "¡Correcto! El tiempo se mide en segundos (s).",
+      "retroError": "Incorrecto. En el Sistema Internacional el tiempo se mide en segundos (s)."
+    },
+    "configuracion": {
+      "tolerancia": 0
+    },
+    "__v": 0
   },
-  "respuesta": {
-    "opciones": [
-      "4000 J",
-      "40000 J",
-      "400 J",
-      "2000 J"
-    ],
-    "indiceCorrecto": 1,
-    "respuestaCorrecta": "40000 J"
+  {
+    "_id": {
+      "$oid": "6af1062f9e2f72ab52babbd8"
+    },
+    "contenido": {
+      "titulo": "Unidades de distancia",
+      "enunciado": "¿En qué unidad del Sistema Internacional se mide la distancia que recorre el carrito?"
+    },
+    "clasificacion": {
+      "tipoDePregunta": "Selección múltiple",
+      "nivel": "Básico",
+      "activo": true
+    },
+    "respuesta": {
+      "opciones": [
+        "Metro",
+        "Kilogramo",
+        "Segundo",
+        "Newton"
+      ],
+      "indiceCorrecto": 0,
+      "respuestaCorrecta": "Metro"
+    },
+    "retroalimentacion": {
+      "retroAcierto": "¡Correcto! La distancia se mide en metros (m).",
+      "retroError": "Incorrecto. En el Sistema Internacional la distancia se mide en metros (m)."
+    },
+    "configuracion": {
+      "tolerancia": 0
+    },
+    "__v": 0
   },
-  "retroalimentacion": {
-    "retroAcierto": "¡Correcto! Ep = 200 · 10 · 20 = 40000 J.",
-    "retroError": "Incorrecto. Usa Ep = m · g · h."
+  {
+    "_id": {
+      "$oid": "6af10630e6b22fcfa86b5b21"
+    },
+    "contenido": {
+      "titulo": "El punto más alto",
+      "enunciado": "¿En qué parte del recorrido el carrito tiene más energía potencial?"
+    },
+    "clasificacion": {
+      "tipoDePregunta": "Selección múltiple",
+      "nivel": "Básico",
+      "activo": true
+    },
+    "respuesta": {
+      "opciones": [
+        "En el punto más bajo",
+        "En el punto más alto",
+        "En una recta horizontal",
+        "Siempre tiene la misma"
+      ],
+      "indiceCorrecto": 1,
+      "respuestaCorrecta": "En el punto más alto"
+    },
+    "retroalimentacion": {
+      "retroAcierto": "¡Correcto! La energía potencial depende de la altura: a más altura, más energía.",
+      "retroError": "Incorrecto. La energía potencial aumenta con la altura, así que es mayor en el punto más alto."
+    },
+    "configuracion": {
+      "tolerancia": 0
+    },
+    "__v": 0
   },
-  "configuracion": {
-    "tolerancia": 0
+  {
+    "_id": {
+      "$oid": "6af1063182e6dc261bc54982"
+    },
+    "contenido": {
+      "titulo": "La fricción",
+      "enunciado": "¿Qué efecto tiene la fricción de los rieles sobre el carrito?"
+    },
+    "clasificacion": {
+      "tipoDePregunta": "Selección múltiple",
+      "nivel": "Básico",
+      "activo": true
+    },
+    "respuesta": {
+      "opciones": [
+        "Lo acelera",
+        "Lo hace más pesado",
+        "Lo frena",
+        "No le hace nada"
+      ],
+      "indiceCorrecto": 2,
+      "respuestaCorrecta": "Lo frena"
+    },
+    "retroalimentacion": {
+      "retroAcierto": "¡Correcto! La fricción se opone al movimiento y frena el carrito.",
+      "retroError": "Incorrecto. La fricción siempre se opone al movimiento, por eso frena el carrito."
+    },
+    "configuracion": {
+      "tolerancia": 0
+    },
+    "__v": 0
   },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "6acf135bc9c8f5584f7b4f87"
+  {
+    "_id": {
+      "$oid": "6af10632cdb55b3858656d1e"
+    },
+    "contenido": {
+      "titulo": "Aceleración en el lanzamiento",
+      "enunciado": "El carrito pasa de 0 a 20 m/s en 4 segundos. ¿Cuál es su aceleración? (a = Δv / t)"
+    },
+    "clasificacion": {
+      "tipoDePregunta": "Selección múltiple",
+      "nivel": "Intermedio",
+      "activo": true
+    },
+    "respuesta": {
+      "opciones": [
+        "80 m/s²",
+        "5 m/s²",
+        "16 m/s²",
+        "24 m/s²"
+      ],
+      "indiceCorrecto": 1,
+      "respuestaCorrecta": "5 m/s²"
+    },
+    "retroalimentacion": {
+      "retroAcierto": "¡Correcto! a = 20 / 4 = 5 m/s².",
+      "retroError": "Incorrecto. Divide el cambio de velocidad entre el tiempo: a = Δv / t."
+    },
+    "configuracion": {
+      "tolerancia": 0
+    },
+    "__v": 0
   },
-  "contenido": {
-    "titulo": "Conservación de la energía",
-    "enunciado": "Un carrito parte del reposo a 45 m de altura. Sin fricción, ¿qué velocidad tiene al llegar al suelo? (g = 10 m/s², v = √(2 · g · h))"
+  {
+    "_id": {
+      "$oid": "6af106337f18b7556a348871"
+    },
+    "contenido": {
+      "titulo": "Energía cinética del carrito",
+      "enunciado": "Un carrito de 100 kg va a 10 m/s. ¿Cuál es su energía cinética? (Ec = ½ · m · v²)"
+    },
+    "clasificacion": {
+      "tipoDePregunta": "Selección múltiple",
+      "nivel": "Intermedio",
+      "activo": true
+    },
+    "respuesta": {
+      "opciones": [
+        "1000 J",
+        "10000 J",
+        "500 J",
+        "5000 J"
+      ],
+      "indiceCorrecto": 3,
+      "respuestaCorrecta": "5000 J"
+    },
+    "retroalimentacion": {
+      "retroAcierto": "¡Correcto! Ec = ½ · 100 · 10² = 5000 J.",
+      "retroError": "Incorrecto. Eleva la velocidad al cuadrado antes de multiplicar: Ec = ½ · m · v²."
+    },
+    "configuracion": {
+      "tolerancia": 0
+    },
+    "__v": 0
   },
-  "clasificacion": {
-    "tipoDePregunta": "Selección múltiple",
-    "nivel": "Avanzado",
-    "activo": true
+  {
+    "_id": {
+      "$oid": "6af10634de01ea6136c0d19a"
+    },
+    "contenido": {
+      "titulo": "Peso del carrito",
+      "enunciado": "Un carrito tiene una masa de 300 kg. ¿Cuál es su peso? (g = 10 m/s², P = m · g)"
+    },
+    "clasificacion": {
+      "tipoDePregunta": "Selección múltiple",
+      "nivel": "Intermedio",
+      "activo": true
+    },
+    "respuesta": {
+      "opciones": [
+        "3000 N",
+        "300 N",
+        "30 N",
+        "310 N"
+      ],
+      "indiceCorrecto": 0,
+      "respuestaCorrecta": "3000 N"
+    },
+    "retroalimentacion": {
+      "retroAcierto": "¡Correcto! P = 300 · 10 = 3000 N.",
+      "retroError": "Incorrecto. El peso es la masa por la gravedad: P = m · g."
+    },
+    "configuracion": {
+      "tolerancia": 0
+    },
+    "__v": 0
   },
-  "respuesta": {
-    "opciones": [
-      "20 m/s",
-      "45 m/s",
-      "30 m/s",
-      "900 m/s"
-    ],
-    "indiceCorrecto": 2,
-    "respuestaCorrecta": "30 m/s"
+  {
+    "_id": {
+      "$oid": "6af106356b1140bcd3417c48"
+    },
+    "contenido": {
+      "titulo": "Caída libre",
+      "enunciado": "El carrito cae libremente desde el reposo durante 3 segundos. ¿Qué velocidad tiene? (g = 10 m/s², v = g · t)"
+    },
+    "clasificacion": {
+      "tipoDePregunta": "Selección múltiple",
+      "nivel": "Intermedio",
+      "activo": true
+    },
+    "respuesta": {
+      "opciones": [
+        "3 m/s",
+        "13 m/s",
+        "30 m/s",
+        "90 m/s"
+      ],
+      "indiceCorrecto": 2,
+      "respuestaCorrecta": "30 m/s"
+    },
+    "retroalimentacion": {
+      "retroAcierto": "¡Correcto! v = 10 · 3 = 30 m/s.",
+      "retroError": "Incorrecto. En caída libre desde el reposo v = g · t."
+    },
+    "configuracion": {
+      "tolerancia": 0
+    },
+    "__v": 0
   },
-  "retroalimentacion": {
-    "retroAcierto": "¡Correcto! v = √(2 · 10 · 45) = √900 = 30 m/s.",
-    "retroError": "Incorrecto. Toda la energía potencial se convierte en cinética: v = √(2 · g · h)."
+  {
+    "_id": {
+      "$oid": "6af106369c7b00aea5fe120f"
+    },
+    "contenido": {
+      "titulo": "Distancia acelerando",
+      "enunciado": "El carrito parte del reposo con aceleración de 2 m/s². ¿Qué distancia recorre en 5 s? (d = ½ · a · t²)"
+    },
+    "clasificacion": {
+      "tipoDePregunta": "Selección múltiple",
+      "nivel": "Intermedio",
+      "activo": true
+    },
+    "respuesta": {
+      "opciones": [
+        "10 m",
+        "25 m",
+        "50 m",
+        "5 m"
+      ],
+      "indiceCorrecto": 1,
+      "respuestaCorrecta": "25 m"
+    },
+    "retroalimentacion": {
+      "retroAcierto": "¡Correcto! d = ½ · 2 · 5² = 25 m.",
+      "retroError": "Incorrecto. Desde el reposo d = ½ · a · t²; recuerda elevar el tiempo al cuadrado."
+    },
+    "configuracion": {
+      "tolerancia": 0
+    },
+    "__v": 0
   },
-  "configuracion": {
-    "tolerancia": 0
+  {
+    "_id": {
+      "$oid": "6af10637281751438b6574bf"
+    },
+    "contenido": {
+      "titulo": "Segunda ley de Newton",
+      "enunciado": "¿Qué fuerza se necesita para acelerar un carrito de 250 kg a 4 m/s²? (F = m · a)"
+    },
+    "clasificacion": {
+      "tipoDePregunta": "Selección múltiple",
+      "nivel": "Intermedio",
+      "activo": true
+    },
+    "respuesta": {
+      "opciones": [
+        "62.5 N",
+        "254 N",
+        "1000 N",
+        "246 N"
+      ],
+      "indiceCorrecto": 2,
+      "respuestaCorrecta": "1000 N"
+    },
+    "retroalimentacion": {
+      "retroAcierto": "¡Correcto! F = 250 · 4 = 1000 N.",
+      "retroError": "Incorrecto. Según la segunda ley de Newton F = m · a."
+    },
+    "configuracion": {
+      "tolerancia": 0
+    },
+    "__v": 0
   },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "6acf1362c9c8f5584f7b4f88"
+  {
+    "_id": {
+      "$oid": "6af10638b2a2199c6a7a9b62"
+    },
+    "contenido": {
+      "titulo": "Potencia del motor",
+      "enunciado": "El motor que sube el carrito hace un trabajo de 60000 J en 30 segundos. ¿Cuál es su potencia? (P = W / t)"
+    },
+    "clasificacion": {
+      "tipoDePregunta": "Selección múltiple",
+      "nivel": "Intermedio",
+      "activo": true
+    },
+    "respuesta": {
+      "opciones": [
+        "1800000 W",
+        "2000 W",
+        "500 W",
+        "60030 W"
+      ],
+      "indiceCorrecto": 1,
+      "respuestaCorrecta": "2000 W"
+    },
+    "retroalimentacion": {
+      "retroAcierto": "¡Correcto! P = 60000 / 30 = 2000 W.",
+      "retroError": "Incorrecto. La potencia es el trabajo dividido entre el tiempo: P = W / t."
+    },
+    "configuracion": {
+      "tolerancia": 0
+    },
+    "__v": 0
   },
-  "contenido": {
-    "titulo": "Unidades de velocidad",
-    "enunciado": "¿En qué unidad del Sistema Internacional se mide la velocidad?"
+  {
+    "_id": {
+      "$oid": "6af1063943169a4d83a2e43f"
+    },
+    "contenido": {
+      "titulo": "Velocidad media del recorrido",
+      "enunciado": "El recorrido completo mide 600 m y el carrito tarda 2 minutos. ¿Cuál es su velocidad media en m/s?"
+    },
+    "clasificacion": {
+      "tipoDePregunta": "Selección múltiple",
+      "nivel": "Intermedio",
+      "activo": true
+    },
+    "respuesta": {
+      "opciones": [
+        "300 m/s",
+        "1200 m/s",
+        "10 m/s",
+        "5 m/s"
+      ],
+      "indiceCorrecto": 3,
+      "respuestaCorrecta": "5 m/s"
+    },
+    "retroalimentacion": {
+      "retroAcierto": "¡Correcto! 2 min = 120 s, entonces v = 600 / 120 = 5 m/s.",
+      "retroError": "Incorrecto. Primero pasa los minutos a segundos (2 min = 120 s) y luego divide: v = d / t."
+    },
+    "configuracion": {
+      "tolerancia": 0
+    },
+    "__v": 0
   },
-  "clasificacion": {
-    "tipoDePregunta": "Selección múltiple",
-    "nivel": "Básico",
-    "activo": true
+  {
+    "_id": {
+      "$oid": "6af1063ab6def222b8ec4390"
+    },
+    "contenido": {
+      "titulo": "Trabajo de la cadena",
+      "enunciado": "La cadena jala el carrito con una fuerza de 500 N a lo largo de 8 m. ¿Qué trabajo realiza? (W = F · d)"
+    },
+    "clasificacion": {
+      "tipoDePregunta": "Selección múltiple",
+      "nivel": "Intermedio",
+      "activo": true
+    },
+    "respuesta": {
+      "opciones": [
+        "4000 J",
+        "62.5 J",
+        "508 J",
+        "400 J"
+      ],
+      "indiceCorrecto": 0,
+      "respuestaCorrecta": "4000 J"
+    },
+    "retroalimentacion": {
+      "retroAcierto": "¡Correcto! W = 500 · 8 = 4000 J.",
+      "retroError": "Incorrecto. El trabajo es la fuerza por la distancia: W = F · d."
+    },
+    "configuracion": {
+      "tolerancia": 0
+    },
+    "__v": 0
   },
-  "respuesta": {
-    "opciones": [
-      "km/h",
-      "m/s",
-      "m/s²",
-      "N"
-    ],
-    "indiceCorrecto": 1,
-    "respuestaCorrecta": "m/s"
+  {
+    "_id": {
+      "$oid": "6af1063bb0cdd5b9e0fcd9c0"
+    },
+    "contenido": {
+      "titulo": "Velocidad mínima en el rizo",
+      "enunciado": "El carrito pasa por la parte más alta de un rizo de radio 10 m. ¿Cuál es la velocidad mínima para no caerse? (g = 10 m/s², v = √(g · R))"
+    },
+    "clasificacion": {
+      "tipoDePregunta": "Selección múltiple",
+      "nivel": "Avanzado",
+      "activo": true
+    },
+    "respuesta": {
+      "opciones": [
+        "100 m/s",
+        "20 m/s",
+        "10 m/s",
+        "14.1 m/s"
+      ],
+      "indiceCorrecto": 2,
+      "respuestaCorrecta": "10 m/s"
+    },
+    "retroalimentacion": {
+      "retroAcierto": "¡Correcto! v = √(10 · 10) = 10 m/s; ahí la gravedad sola da la fuerza centrípeta.",
+      "retroError": "Incorrecto. En la cima la gravedad debe dar la fuerza centrípeta: m · g = m · v² / R, entonces v = √(g · R)."
+    },
+    "configuracion": {
+      "tolerancia": 0
+    },
+    "__v": 0
   },
-  "retroalimentacion": {
-    "retroAcierto": "¡Correcto! La velocidad se mide en metros por segundo.",
-    "retroError": "Incorrecto. En el Sistema Internacional la velocidad se mide en m/s."
+  {
+    "_id": {
+      "$oid": "6af1063c0ceb86cc248f6fed"
+    },
+    "contenido": {
+      "titulo": "Aceleración centrípeta en la curva",
+      "enunciado": "El carrito toma una curva de 40 m de radio a 20 m/s. ¿Cuál es su aceleración centrípeta? (ac = v² / r)"
+    },
+    "clasificacion": {
+      "tipoDePregunta": "Selección múltiple",
+      "nivel": "Avanzado",
+      "activo": true
+    },
+    "respuesta": {
+      "opciones": [
+        "0.5 m/s²",
+        "10 m/s²",
+        "800 m/s²",
+        "2 m/s²"
+      ],
+      "indiceCorrecto": 1,
+      "respuestaCorrecta": "10 m/s²"
+    },
+    "retroalimentacion": {
+      "retroAcierto": "¡Correcto! ac = 20² / 40 = 400 / 40 = 10 m/s².",
+      "retroError": "Incorrecto. La aceleración centrípeta es ac = v² / r."
+    },
+    "configuracion": {
+      "tolerancia": 0
+    },
+    "__v": 0
   },
-  "configuracion": {
-    "tolerancia": 0
+  {
+    "_id": {
+      "$oid": "6af1063d2e8742d6223a590d"
+    },
+    "contenido": {
+      "titulo": "Fuerza en el fondo del valle",
+      "enunciado": "Un pasajero de 50 kg pasa por el fondo de un valle de radio 20 m a 20 m/s. ¿Qué fuerza normal le hace el asiento? (g = 10 m/s², N = m · (g + v² / r))"
+    },
+    "clasificacion": {
+      "tipoDePregunta": "Selección múltiple",
+      "nivel": "Avanzado",
+      "activo": true
+    },
+    "respuesta": {
+      "opciones": [
+        "500 N",
+        "1000 N",
+        "2000 N",
+        "1500 N"
+      ],
+      "indiceCorrecto": 3,
+      "respuestaCorrecta": "1500 N"
+    },
+    "retroalimentacion": {
+      "retroAcierto": "¡Correcto! N = 50 · (10 + 400 / 20) = 50 · 30 = 1500 N. Por eso uno se siente más pesado.",
+      "retroError": "Incorrecto. En el fondo la normal debe vencer el peso y además dar la fuerza centrípeta: N = m · (g + v² / r)."
+    },
+    "configuracion": {
+      "tolerancia": 0
+    },
+    "__v": 0
   },
-  "__v": 0
-}]
+  {
+    "_id": {
+      "$oid": "6af1063e6060d1ff61bd43f0"
+    },
+    "contenido": {
+      "titulo": "Altura para completar el rizo",
+      "enunciado": "Sin fricción, ¿desde qué altura mínima debe partir del reposo el carrito para completar un rizo de radio 8 m? (h = 2.5 · R)"
+    },
+    "clasificacion": {
+      "tipoDePregunta": "Selección múltiple",
+      "nivel": "Avanzado",
+      "activo": true
+    },
+    "respuesta": {
+      "opciones": [
+        "16 m",
+        "20 m",
+        "8 m",
+        "24 m"
+      ],
+      "indiceCorrecto": 1,
+      "respuestaCorrecta": "20 m"
+    },
+    "retroalimentacion": {
+      "retroAcierto": "¡Correcto! h = 2.5 · 8 = 20 m.",
+      "retroError": "Incorrecto. Con la conservación de la energía y la velocidad mínima en la cima se obtiene h = 2.5 · R."
+    },
+    "configuracion": {
+      "tolerancia": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6af1063f7fc68c4f711c2637"
+    },
+    "contenido": {
+      "titulo": "Energía perdida por fricción",
+      "enunciado": "Un carrito de 400 kg baja desde 30 m de altura partiendo del reposo y llega abajo a 20 m/s. ¿Cuánta energía perdió por fricción? (g = 10 m/s²)"
+    },
+    "clasificacion": {
+      "tipoDePregunta": "Selección múltiple",
+      "nivel": "Avanzado",
+      "activo": true
+    },
+    "respuesta": {
+      "opciones": [
+        "40000 J",
+        "80000 J",
+        "120000 J",
+        "200000 J"
+      ],
+      "indiceCorrecto": 0,
+      "respuestaCorrecta": "40000 J"
+    },
+    "retroalimentacion": {
+      "retroAcierto": "¡Correcto! Ep = 400 · 10 · 30 = 120000 J y Ec = ½ · 400 · 20² = 80000 J; se perdieron 40000 J.",
+      "retroError": "Incorrecto. Calcula la energía potencial inicial (m · g · h) y réstale la cinética final (½ · m · v²)."
+    },
+    "configuracion": {
+      "tolerancia": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6af10640c8fb59f48440a4a8"
+    },
+    "contenido": {
+      "titulo": "Bajada inclinada",
+      "enunciado": "El carrito baja por una rampa sin fricción inclinada 30°. ¿Cuál es su aceleración? (g = 10 m/s², a = g · sen θ)"
+    },
+    "clasificacion": {
+      "tipoDePregunta": "Selección múltiple",
+      "nivel": "Avanzado",
+      "activo": true
+    },
+    "respuesta": {
+      "opciones": [
+        "10 m/s²",
+        "8.66 m/s²",
+        "2.5 m/s²",
+        "5 m/s²"
+      ],
+      "indiceCorrecto": 3,
+      "respuestaCorrecta": "5 m/s²"
+    },
+    "retroalimentacion": {
+      "retroAcierto": "¡Correcto! a = 10 · sen 30° = 10 · 0.5 = 5 m/s².",
+      "retroError": "Incorrecto. En un plano inclinado sin fricción a = g · sen θ, y sen 30° = 0.5."
+    },
+    "configuracion": {
+      "tolerancia": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6af10641c063a33542d0aec7"
+    },
+    "contenido": {
+      "titulo": "Frenado al final del recorrido",
+      "enunciado": "Un carrito de 500 kg que va a 20 m/s se detiene en 4 segundos. ¿Cuál es la fuerza promedio de frenado? (F = m · Δv / t)"
+    },
+    "clasificacion": {
+      "tipoDePregunta": "Selección múltiple",
+      "nivel": "Avanzado",
+      "activo": true
+    },
+    "respuesta": {
+      "opciones": [
+        "10000 N",
+        "2500 N",
+        "40000 N",
+        "125 N"
+      ],
+      "indiceCorrecto": 1,
+      "respuestaCorrecta": "2500 N"
+    },
+    "retroalimentacion": {
+      "retroAcierto": "¡Correcto! F = 500 · 20 / 4 = 2500 N.",
+      "retroError": "Incorrecto. Usa el impulso: F · t = m · Δv, entonces F = m · Δv / t."
+    },
+    "configuracion": {
+      "tolerancia": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6af10642d77d7ea72a9053db"
+    },
+    "contenido": {
+      "titulo": "Velocidad a media bajada",
+      "enunciado": "Un carrito parte del reposo a 80 m de altura. Sin fricción, ¿qué velocidad tiene cuando está a 35 m de altura? (g = 10 m/s²)"
+    },
+    "clasificacion": {
+      "tipoDePregunta": "Selección múltiple",
+      "nivel": "Avanzado",
+      "activo": true
+    },
+    "respuesta": {
+      "opciones": [
+        "40 m/s",
+        "26.5 m/s",
+        "45 m/s",
+        "30 m/s"
+      ],
+      "indiceCorrecto": 3,
+      "respuestaCorrecta": "30 m/s"
+    },
+    "retroalimentacion": {
+      "retroAcierto": "¡Correcto! Bajó 45 m, entonces v = √(2 · 10 · 45) = √900 = 30 m/s.",
+      "retroError": "Incorrecto. Usa la altura que bajó (80 − 35 = 45 m): v = √(2 · g · Δh)."
+    },
+    "configuracion": {
+      "tolerancia": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6af10643b0248e30ea8d0d52"
+    },
+    "contenido": {
+      "titulo": "Choque de carritos",
+      "enunciado": "Un carrito de 300 kg a 12 m/s choca con otro de 300 kg detenido y quedan unidos. ¿Con qué velocidad se mueven juntos? (conservación del momento)"
+    },
+    "clasificacion": {
+      "tipoDePregunta": "Selección múltiple",
+      "nivel": "Avanzado",
+      "activo": true
+    },
+    "respuesta": {
+      "opciones": [
+        "12 m/s",
+        "24 m/s",
+        "6 m/s",
+        "0 m/s"
+      ],
+      "indiceCorrecto": 2,
+      "respuestaCorrecta": "6 m/s"
+    },
+    "retroalimentacion": {
+      "retroAcierto": "¡Correcto! 300 · 12 = 600 · v, entonces v = 6 m/s.",
+      "retroError": "Incorrecto. El momento se conserva: m1 · v1 = (m1 + m2) · v."
+    },
+    "configuracion": {
+      "tolerancia": 0
+    },
+    "__v": 0
+  }
+]

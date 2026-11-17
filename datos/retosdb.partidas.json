@@ -1,60 +1,83 @@
-[{
-  "_id": {
-    "$oid": "6acf1a354464dfc1a76f91fe"
+[
+  {
+    "_id": {
+      "$oid": "6acf1a354464dfc1a76f91fe"
+    },
+    "usuarioId": {
+      "$oid": "6acf08b8e4717875a268f9b4"
+    },
+    "puntuacion": 20,
+    "tiempoTotal": 25.7,
+    "totalPreguntas": 3,
+    "aciertos": 2,
+    "errores": 1,
+    "porcentajeAciertos": 66.67,
+    "__v": 0,
+    "fechaInicio": {
+      "$date": "2026-10-14T05:59:17.000Z"
+    },
+    "fechaFin": {
+      "$date": "2026-10-14T06:09:33.000Z"
+    }
   },
-  "usuarioId": {
-    "$oid": "6acf08b8e4717875a268f9b4"
+  {
+    "_id": {
+      "$oid": "6acf1a454464dfc1a76f91ff"
+    },
+    "usuarioId": {
+      "$oid": "6acf08b8e4717875a268f9b4"
+    },
+    "puntuacion": 20,
+    "tiempoTotal": 33.6,
+    "totalPreguntas": 3,
+    "aciertos": 2,
+    "errores": 1,
+    "porcentajeAciertos": 66.67,
+    "__v": 0,
+    "fechaInicio": {
+      "$date": "2026-10-14T05:59:33.000Z"
+    },
+    "fechaFin": {
+      "$date": "2026-10-14T06:22:36.000Z"
+    }
   },
-  "puntuacion": 20,
-  "tiempoTotal": 25.7,
-  "totalPreguntas": 3,
-  "aciertos": 2,
-  "errores": 1,
-  "porcentajeAciertos": 66.67,
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "6acf1a454464dfc1a76f91ff"
+  {
+    "_id": {
+      "$oid": "6acf1e4e719db69cb0f4eb56"
+    },
+    "usuarioId": {
+      "$oid": "6acf1e20719db69cb0f4eb55"
+    },
+    "puntuacion": 20,
+    "tiempoTotal": 52,
+    "totalPreguntas": 4,
+    "aciertos": 2,
+    "errores": 2,
+    "porcentajeAciertos": 50,
+    "__v": 0,
+    "fechaInicio": {
+      "$date": "2026-10-14T06:16:46.000Z"
+    },
+    "fechaFin": {
+      "$date": "2026-10-14T06:19:21.000Z"
+    }
   },
-  "usuarioId": {
-    "$oid": "6acf08b8e4717875a268f9b4"
-  },
-  "puntuacion": 20,
-  "tiempoTotal": 33.6,
-  "totalPreguntas": 3,
-  "aciertos": 2,
-  "errores": 1,
-  "porcentajeAciertos": 66.67,
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "6acf1e4e719db69cb0f4eb56"
-  },
-  "usuarioId": {
-    "$oid": "6acf1e20719db69cb0f4eb55"
-  },
-  "puntuacion": 20,
-  "tiempoTotal": 52,
-  "totalPreguntas": 4,
-  "aciertos": 2,
-  "errores": 2,
-  "porcentajeAciertos": 50,
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "6acf1e8a719db69cb0f4eb57"
-  },
-  "usuarioId": {
-    "$oid": "6acf1e20719db69cb0f4eb55"
-  },
-  "puntuacion": 0,
-  "tiempoTotal": 0,
-  "totalPreguntas": 4,
-  "aciertos": 0,
-  "errores": 0,
-  "porcentajeAciertos": 0,
-  "__v": 0
-}]
+  {
+    "_id": {
+      "$oid": "6acf1e8a719db69cb0f4eb57"
+    },
+    "usuarioId": {
+      "$oid": "6acf1e20719db69cb0f4eb55"
+    },
+    "puntuacion": 0,
+    "tiempoTotal": 0,
+    "totalPreguntas": 4,
+    "aciertos": 0,
+    "errores": 0,
+    "porcentajeAciertos": 0,
+    "__v": 0,
+    "fechaInicio": {
+      "$date": "2026-10-14T06:17:46.000Z"
+    }
+  }
+]

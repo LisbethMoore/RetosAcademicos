@@ -8,7 +8,8 @@ let RespuestaSchema = Schema({
   respuesta: String,
   correcta: Boolean,
   tiempoRespuesta: Number,
-  puntuacion: Number
+  puntuacion: Number,
+  fecha: Date          // cuando el jugador respondió (la pone el backend)
 })
 
 module.exports = mongoose.model('Respuesta', RespuestaSchema, 'respuestas')

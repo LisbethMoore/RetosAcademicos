@@ -4,7 +4,8 @@ let Schema = mongoose.Schema
 let RetoSchema = Schema({
   contenido: {
     titulo: String,
-    enunciado: String
+    enunciado: String,
+    imagen: String     // opcional: URL de una imagen para ilustrar el reto
   },
   clasificacion: {
     tipoDePregunta: String,
