@@ -1,0 +1,430 @@
+/* ---------- Colores y tipografía (tema: parque de diversiones) ---------- */
+:root {
+  --noche: #1B1F3B;        /* azul oscuro: encabezado y textos fuertes */
+  --coral: #FF5A36;        /* color principal: botones */
+  --coral-oscuro: #E04420;
+  --sol: #FFC23C;          /* amarillo: detalles */
+  --verde: #2BB673;
+  --rojo: #E5484D;
+  --fondo: #FFF8F0;
+  --tarjeta: #FFFFFF;
+  --borde: #EADFD3;
+  --texto: #2B2D42;
+  --suave: #6B6F80;
+  --sombra: 0 6px 20px rgba(27, 31, 59, 0.08);
+  --radio: 14px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: "Nunito", Arial, sans-serif;
+  margin: 0;
+  background-color: #BFE3FB;
+  color: var(--texto);
+  line-height: 1.5;
+}
+
+/* Fondo del paisaje: queda quieto mientras se baja por la página */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: url("/fondo.webp") center bottom / cover no-repeat;
+}
+
+h1, h2, h3 {
+  font-family: "Fredoka", "Nunito", sans-serif;
+  color: var(--noche);
+  line-height: 1.2;
+}
+
+h1 { font-size: 2.2rem; margin: 0 0 12px; }
+h2 { font-size: 1.6rem; margin: 0 0 12px; }
+h3 { font-size: 1.2rem; margin: 8px 0; }
+
+.container {
+  width: 100%;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+main.container { padding-top: 28px; padding-bottom: 40px; }
+main.angosto { max-width: 460px; }
+
+/* ---------- Encabezado ---------- */
+header {
+  background: var(--noche);
+  color: #fff;
+  padding: 12px 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+}
+
+.header-contenido {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Fredoka", sans-serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+}
+
+.logo span { color: var(--sol); }
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+nav a {
+  color: #D5D8EC;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+
+nav a:hover { color: #fff; background: rgba(255, 255, 255, 0.08); }
+nav a.active { color: var(--noche); background: var(--sol); }
+
+.sesion {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 8px;
+  padding-left: 12px;
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-weight: 700;
+}
+
+.sesion small { color: #A9AECB; font-weight: 600; }
+
+/* ---------- Botones ---------- */
+button, .boton {
+  font-family: inherit;
+  background-color: var(--coral);
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  cursor: pointer;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 800;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.15s, transform 0.1s;
+}
+
+button:hover, .boton:hover { background-color: var(--coral-oscuro); }
+button:active, .boton:active { transform: scale(0.97); }
+
+button:disabled {
+  background-color: #C7C2BC;
+  cursor: not-allowed;
+  transform: none;
+}
+
+button.secundario, .boton.secundario {
+  background-color: #fff;
+  color: var(--noche);
+  box-shadow: inset 0 0 0 2px var(--borde);
+}
+button.secundario:hover, .boton.secundario:hover { background-color: #F4EEE7; }
+
+button.peligro { background-color: var(--rojo); }
+button.peligro:hover { background-color: #C4363A; }
+
+button.pequeno { padding: 6px 12px; font-size: 13px; }
+
+/* ---------- Mensajes ---------- */
+.error, .mensaje-acierto {
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-weight: 700;
+}
+
+.error { background-color: #FDECEC; color: #A3262A; border: 1px solid #F6C9CA; }
+.mensaje-acierto { background-color: #E3F6EC; color: #17633F; border: 1px solid #BDE7D0; }
+
+/* ---------- Tarjetas ---------- */
+.card {
+  background: var(--tarjeta);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: 18px;
+  box-shadow: var(--sombra);
+  display: flex;
+  flex-direction: column;
+}
+
+.card-inactiva { opacity: 0.55; }
+
+.card-etiquetas { display: flex; gap: 6px; flex-wrap: wrap; }
+
+.card-acciones {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: auto;
+  padding-top: 10px;
+}
+
+.etiqueta {
+  font-size: 12px;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: #eee;
+}
+
+.nivel-Básico { background: #DDF3E6; color: #17633F; }
+.nivel-Intermedio { background: #FFF0C7; color: #7A5600; }
+.nivel-Avanzado { background: #FFE0D8; color: #A12F12; }
+.activo { background: #DDE6FF; color: #233A8C; }
+.inactivo { background: #E9E7E4; color: #55524E; }
+
+/* ---------- Ilustraciones de los retos ---------- */
+.ilustracion {
+  border-radius: 10px;
+  overflow: hidden;
+  background: #FFF1E2;
+  aspect-ratio: 2 / 1;
+  margin-bottom: 10px;
+}
+
+.ilustracion svg, .ilustracion img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* ---------- Inicio ---------- */
+.hero {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 28px;
+  align-items: center;
+  padding: 12px 0 28px;
+}
+
+.hero > div:first-child {
+  background: rgba(255, 255, 255, 0.88);
+  border-radius: var(--radio);
+  padding: 24px;
+  box-shadow: var(--sombra);
+}
+.hero p { font-size: 1.1rem; color: var(--suave); }
+.hero .mascota { width: 100%; max-width: 440px; justify-self: center; filter: drop-shadow(0 10px 18px rgba(27, 31, 59, 0.25)); }
+.hero .card-acciones { padding-top: 6px; }
+.hero svg { width: 100%; height: auto; display: block; }
+
+.niveles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.nivel-card { text-align: center; align-items: center; }
+.nivel-card .icono { font-size: 2.2rem; }
+.nivel-card p { margin: 4px 0 0; color: var(--suave); }
+
+/* ---------- Lista de retos (administrador) ---------- */
+.encabezado-pagina {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.encabezado-pagina h2 { margin: 0; }
+.titulo-sobre-fondo {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 4px 14px;
+  border-radius: 999px;
+}
+
+.filtros {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.filtros input { flex: 1; min-width: 200px; }
+
+.total { color: var(--noche); font-weight: 800; }
+
+.grilla {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 18px;
+}
+
+.grilla .card p { margin: 4px 0; }
+.enunciado-corto {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  color: var(--suave);
+}
+
+/* ---------- Jugar ---------- */
+.bienvenida {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.selector-cantidad { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+.selector-cantidad .titulo { font-weight: 800; margin-right: 4px; }
+.selector-cantidad button { min-width: 46px; }
+
+.marcador {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.marcador div {
+  background: #fff;
+  border: 1px solid var(--borde);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-weight: 800;
+}
+
+.pregunta {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.pregunta .ilustracion { margin: 0; }
+.pregunta p.enunciado { font-size: 1.1rem; margin: 6px 0 4px; }
+
+.opciones-juego {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+  margin: 16px 0;
+}
+
+.opcion-juego {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #fff;
+  color: var(--texto);
+  box-shadow: inset 0 0 0 2px var(--borde);
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 16px;
+  text-align: left;
+}
+
+.opcion-juego .letra {
+  flex: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--noche);
+  color: #fff;
+  font-size: 14px;
+}
+
+.opcion-juego:hover:not(:disabled) { background-color: #FFF1E2; box-shadow: inset 0 0 0 2px var(--coral); }
+.opcion-juego:disabled { background-color: #fff; color: var(--texto); cursor: default; opacity: 0.6; }
+.opcion-juego.acierto { background-color: #E3F6EC; box-shadow: inset 0 0 0 2px var(--verde); opacity: 1; }
+.opcion-juego.acierto .letra { background: var(--verde); }
+.opcion-juego.fallo { background-color: #FDECEC; box-shadow: inset 0 0 0 2px var(--rojo); opacity: 1; }
+.opcion-juego.fallo .letra { background: var(--rojo); }
+
+.acciones-juego { display: flex; justify-content: flex-end; margin-top: 14px; }
+
+.resumen { text-align: center; margin-top: 16px; }
+.resumen .mascota {
+  height: 280px;
+  max-width: 80%;
+  object-fit: contain;
+  margin: 0 auto 6px;
+  filter: drop-shadow(0 8px 14px rgba(27, 31, 59, 0.2));
+  animation: celebrar 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes celebrar {
+  from { transform: translateY(0) rotate(-3deg); }
+  to { transform: translateY(-10px) rotate(3deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .resumen .mascota { animation: none; }
+}
+.resumen .puntos {
+  font-family: "Fredoka", sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--coral);
+  line-height: 1;
+}
+.resumen .estrellas { font-size: 2rem; letter-spacing: 4px; }
+.resumen .fecha { color: var(--suave); }
+
+/* ---------- Historial ---------- */
+.seccion h2 {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 4px 14px;
+  border-radius: 999px;
+}
+.seccion { margin-top: 28px; }
+
+.tabla-scroll {
+  overflow-x: auto;
+  border-radius: var(--radio);
+  border: 1px solid var(--borde);
+  box-shadow: var(--sombra);
+}
+
+table { border-collapse: collapse; width: 100%; background: #fff; }
+th, td { padding: 10px 12px; text-align: center; border-bottom: 1px solid #F1EAE2; white-space: nowrap; }
+th { background: var(--noche); color: #fff; font-weight: 800; }
+tr:last-child td { border-bottom: none; }
+td.fecha { text-align: left; }
+
+/* ---------- Celular ---------- */
+@media (max-width: 720px) {
+  h1 { font-size: 1.7rem; }
+  .hero { grid-template-columns: 1fr; }
+  .pregunta { grid-template-columns: 1fr; }
+  .sesion { margin-left: 0; padding-left: 0; border-left: none; }
+}
